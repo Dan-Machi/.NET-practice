@@ -1,0 +1,36 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="~/StyleSheet.css">
+</head>
+<body>
+    <ul class="one">
+        <li class="two"><a href="/">Information</a></li>
+        <li class="two"><a href="store">Store</a></li>
+        <li class="two"><a href="trick">Trick Center</a></li>
+        <li class="two"><a href="history">Action History</a></li>
+        <li class="two" style="float:right"><a class="active" href="login">Login</a></li>
+    </ul>
+    <form action="change" method="post">
+        <label for="food">Food</label>
+        <select name="food">
+            <option value="steak">Steak</option>
+            <option value="fries">Fries</option>
+            <option value="hamburger">Hamburger</option>
+            <option value="fried Noodles">Fried Noodles</option>
+            <option value="fried chicken">Fried chicken</option>
+            <option value="pizza">Pizza</option>
+        </select>
+        <label for="drink">Drink</label>
+        <select name="drink">
+            <option value="coke">Coke</option>
+            <option value="pepsi">Pepsi</option>
+            <option value="vodka">Vodka</option>
+            <option value="sprite">Sprite</option>
+            <option value="whiskey">Whiskey</option>
+            <option value="caffe">Caffe</option>
+        </select>
+        <button type="submit">Change</button>
+    </form>
+</body>
+</html>

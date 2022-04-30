@@ -1,0 +1,124 @@
+﻿@model BankOfSimba.ViewModels.AccList
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th class="index"> </th>
+                <th>Owner</th>
+                <th>Balance</th>
+                <th>Animal</th>
+                <th class="index">VIP</th>
+                <th class="index">Mindset</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.BankAccs.Count; i++)
+            {
+                <tr class="@(Model.BankAccs[i].IsKing ? ("IsKing") : "")">
+                    <td class="index">@(i + 1) </td>
+                    <td>@Model.BankAccs[i].Name</td>
+                    <td>@Model.BankAccs[i].Balance.ToString("C")</td>
+                    <td>@Model.BankAccs[i].AnimalType</td>
+                    <td class="index">@(Model.BankAccs[i].IsKing ? "♕" : "")</td>
+                    <td class="index">@(Model.BankAccs[i].IsBad ? "bad" : "good")</td>
+                    <td class="button">
+                        <form action="table/add" method="post">
+                            <input type="hidden" name="deposit" value="@i">
+                            <button>DEPOSIT</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="table">
+        <div class="tr">
+            <div class="td">Name</div>
+            <div class="td">Balance</div>
+            <div class="td">Type</div>
+            <div class="td">Is Bad</div>
+        </div>
+        <form class="tr" action="table/newacc" method="post">
+            <div class="td"><input type="text" name="name"/></div>
+            <div class="td"><input type="number" name="balance"/></div>
+            <div class="td"><input type="text" name="animalType"/></div>
+            <div class="td">
+                <select name="isBad">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+            <button class="accButt" type="submit">Create Account</button>
+        </form>
+    </div>
+</body>
+</html>
+<style>
+    table {
+        border-left: 1px solid #999;
+        border-collapse: collapse;
+    }
+td, th
+{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: 1px solid #999;
+    text-align: left;
+    padding: 20px;
+    padding-right: 150px;
+}
+th
+{
+    background-color: #222;
+    color: white;
+}
+tr:nth-child(odd)
+{
+    background-color: rgb(241, 241, 241);
+}
+tr:nth-child(even)
+{
+    background-color: white;
+}
+.index
+{
+    padding-right: 30px;
+}
+.IsKing td
+{
+    background-color: gold;
+}
+.IsKing td:last-child
+{
+    background-color: white;
+}
+    .button {
+        padding-right: 30px;
+        border: none;
+        background-color: white;
+    }
+DIV.table {
+    display: table;
+}
+FORM.tr, DIV.tr {
+    display: table-row;
+}
+DIV.td {
+    display: table-cell;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.accButt
+{
+    padding-right: 20px;
+}
+select
+{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+</style>

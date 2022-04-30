@@ -1,0 +1,49 @@
+﻿@model FoxClub.Services.FoxService
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="~/StyleSheet.css">
+</head>
+<body>
+    <ul class="one">
+        <li class="two"><a href="/">Information</a></li>
+        <li class="two"><a href="store">Store</a></li>
+        <li class="two"><a href="trick">Trick Center</a></li>
+        <li class="two"><a href="history">Action History</a></li>
+        <li class="two" style="float:right"><a class="active" href="login">Login</a></li>
+    </ul>
+    <div><img src="~/greenfox.png" /></div>
+    <p>This is Mr. @Model.LoggedFox.Name. Currently living on @Model.LoggedFox.Food and @Model.LoggedFox.Drink. He knows @Model.LoggedFox.Tricks.Count tricks.</p>
+    <h1>Known Tricks</h1>
+    @if (Model.LoggedFox.Tricks.Count == 0)
+    {
+        <p>You know no tricks, yet. Go and learn some.</p>
+    }
+    else
+    {
+        <ul>
+            @foreach (var item in Model.LoggedFox.Tricks)
+            {
+                <li>@item</li>
+            }
+        </ul>
+    }
+    <h2>Action History</h2>
+    <ul>
+        @if (Model.History.Count < 5)
+        {
+            @foreach (var item in Model.History)
+            {
+                <li>@item</li>
+            }
+        }
+        else
+        {
+            @for (int i = Model.History.Count - 5; i < Model.History.Count; i++)
+            {
+                 <li>@Model.History[i]</li>
+            }
+        }
+    </ul>
+</body>
+</html>

@@ -1,0 +1,14 @@
+﻿@model RascalChat.Models.ViewUser
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <p>Username: @Model.Username</p>
+    <p>UserId: @Model.UserId</p>
+    @if (Model.AvatarUrl == null)
+    { <p>AvatarUrl: None</p>}
+    else
+    { <p>AvatarUrl: @Model.AvatarUrl</p>}
+</body>
+</html>

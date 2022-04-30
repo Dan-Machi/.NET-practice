@@ -1,0 +1,33 @@
+﻿@model Reddit.Models.ViewPost
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <a href="new">Submit new post</a>
+        <h1>Trending posts</h1>
+        <table>
+            @for (int i = Model.Posts.Count - 1 - Model.Paging; i > Model.Posts.Count - 6 - Model.Paging; i--)
+            {
+                <tr>
+                    <td>@Model.Posts[i].Score</td>
+                    <td>
+                        <form action="likes" method="post">
+                            <input type="hidden" name="id" value=@Model.Posts[i].Id>
+                            <button type="submit" value=1 name="like">+</button>
+                        </form>
+                        <form action="likes" method="post">
+                            <input type="hidden" name="id" value=@Model.Posts[i].Id>
+                            <button type="submit" value=-1 name="like">-</button>
+                        </form>
+                    </td>
+                    <td><a href=@Model.Posts[i].Text>@Model.Posts[i].Title</a></td>
+                </tr>
+            }
+        </table>
+        <form action="page" method="post">
+            <button type="submit" value=-1 name="page">Previous</button>
+            <button type="submit" value=1 name="page">Next</button>
+        </form>
+    </body>
+    </html>

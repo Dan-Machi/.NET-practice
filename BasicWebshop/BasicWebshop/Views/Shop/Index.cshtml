@@ -1,0 +1,49 @@
+﻿@model BasicWebshop.ViewModels.Storage
+<!DOCTYPE html>
+<link rel="stylesheet" href="~/Styles.css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+</head>
+<body>
+    <header>
+        <a class="logo" href="home">Web Shop</a>
+        <div class="nav">
+            <a href="available">Only Available</a>
+            <a href="cheapest">Cheapest First</a>
+            <a href="containsNike">Contains Nike</a>
+            <a href="averageStock">Average Stock</a>
+            <a href="mostExpensive">Most Expensive Available</a>
+        </div>
+        <div class="search">
+            <form action="search" method="post">
+                <div class="input"><input type="text" name="name" /></div>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.StoredItems.Count; i++)
+                {
+                <tr>
+                    <td>@Model.StoredItems[i].Name</td>
+                    <td>@Model.StoredItems[i].Desctription</td>
+                    <td>@Model.StoredItems[i].Price</td>
+                    <td>@Model.StoredItems[i].Quantity</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

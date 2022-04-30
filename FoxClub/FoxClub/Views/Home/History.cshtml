@@ -1,0 +1,22 @@
+﻿@model FoxClub.Services.FoxService
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="~/StyleSheet.css">
+    </head>
+    <body>
+        <ul class="one">
+            <li class="two"><a href="/">Information</a></li>
+            <li class="two"><a href="store">Store</a></li>
+            <li class="two"><a href="trick">Trick Center</a></li>
+            <li class="two"><a href="history">Action History</a></li>
+            <li class="two" style="float:right"><a class="active" href="login">Login</a></li>
+        </ul>
+        @foreach (var item in Model.History)
+        {
+            <ul>
+                <li>@item</li>
+            </ul>
+        }
+    </body>
+    </html>

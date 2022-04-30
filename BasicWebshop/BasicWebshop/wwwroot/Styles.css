@@ -1,0 +1,29 @@
+﻿header {
+    display: flex;
+    flex-direction:column;
+    background-color: aqua;
+}
+.nav {
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
+    background-color: burlywood;
+}
+    .nav a {
+        margin: 1em;
+        background-color: red;
+        color: white;
+        padding: 1em 1.5em;
+        text-decoration: none;
+    }
+.search {
+    display: flex;
+    flex-direction: row;
+    background-color: darkgreen;
+}
+.logo {
+    display: flex;
+    text-decoration: none;
+}
+
+

@@ -1,0 +1,36 @@
+﻿@model FoxClub.Services.FoxService
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="~/StyleSheet.css">
+</head>
+<body>
+    <ul class="one">
+        <li class="two"><a href="/">Information</a></li>
+        <li class="two"><a href="store">Store</a></li>
+        <li class="two"><a href="trick">Trick Center</a></li>
+        <li class="two"><a href="history">Action History</a></li>
+        <li class="two" style="float:right"><a class="active" href="login">Login</a></li>
+    </ul>
+    @if (Model.Tricks.Count() == Model.LoggedFox.Tricks.Count())
+    {
+        <p>No more tricks to learn.</p>
+    }
+    else
+    {
+        <form action="learn" method="post">
+            <label for="trick">Tricks</label>
+            <select name="trick">
+                @foreach (var item in Model.Tricks)
+                {
+                    if (!Model.LoggedFox.Tricks.Contains(item))
+                    {
+                        <option value=@item>@item</option>
+                    }
+                }
+            </select>
+            <button type="submit">Learn</button>
+        </form>
+    }
+</body>
+</html>
